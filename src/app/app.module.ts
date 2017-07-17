@@ -4,17 +4,21 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { BankComponent } from './components/bankcomponent/bankcomponent.component';
+import {RestBankService} from './services/restbank.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BankComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [RestBankService],
+  //providers: [RestBankService,ActivatedRoute],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,70 @@
+<button (click)="consulta()">consultar</button>
+<button (click)="add()" *ngIf='buttonAdd'>add</button>
+<button (click)="update()" *ngIf='buttonUpdate'>update</button>
+<button (click)="print()">print</button>
+
+<p>
+  <label>Code sucursal</label>
+  <input type="text" [(ngModel)]="bank.codeSucursal"/>
+</p>
+<p>
+  <label>bank Name</label>
+  <input type="text" [(ngModel)]="bank.nameSucursal"/>
+</p>
+<p>
+  <label>Street</label>
+  <input type="text" [(ngModel)]="bank.address.street"/>
+</p>
+<p>
+  <label>Number</label>
+  <input type="text" [(ngModel)]="bank.address.numberBank"/>
+</p>
+<p>
+  <label>Colony</label>
+  <input type="text" [(ngModel)]="bank.address.colony"/>
+</p>
+<p>
+  <label>Municipality</label>
+  <input type="text" [(ngModel)]="bank.address.municipality"/>
+</p>
+<p>
+  <label>Zip code</label>
+  <input type="text" [(ngModel)]="bank.address.zipCode"/>
+</p>
+
+<table>
+  <tr *ngFor='let bank of banks; let i=index'>
+    <td>
+      {{bank.codeSucursal}}
+    </td>
+    <td>
+        {{bank.nameSucursal}}
+    </td>
+    <td>
+      <p>
+        Address
+      </p>
+      <p>
+        {{bank.address.street}}
+      </p>
+      <p>
+        {{bank.address.colony}}
+      </p>
+      <p>
+        {{bank.address.zipCode}}
+      </p>
+      <p>
+        {{bank.address.municipality}}
+      </p>
+      <p>
+        {{bank.address.numberBank}}
+      </p>
+    </td>
+    <td>
+      <a href='http://localhost:4200' (click)="remove(bank.codeSucursal,i)">X</a>
+    </td>
+    <td>
+      <a  (click)="toUpdate(i)" style='color:blue'>update</a>
+    </td>
+  </tr>
+</table>
